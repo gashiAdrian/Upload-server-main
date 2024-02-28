@@ -22,13 +22,10 @@ jobs:
           node-version: '20.x'
 
       - name: npm install, build, and test
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          JWT_SECRET: ${{ secrets.JWT_TESTING_SECRET }}
         run: |
           npm install
           npm run build --if-present
-          # npm run test --if-present
+          #npm run test --if-present
           rm -rf test
           rm -rf src
 
@@ -63,5 +60,5 @@ jobs:
         with:
           app-name: 'gashiad-Upload-server'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1798888C8D9A4B8A98B154407458E5F3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D3551D2C4AEB432F9D4B920F29037BFF }}
           package: .
